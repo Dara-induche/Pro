@@ -55,7 +55,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
           if(isShowFloatingButton){
             return IconButton(
                 onPressed: (){
-                 scrollController.animateTo(scrollController.position.maxScrollExtent, duration: Duration(seconds: 1), curve: Curves.linear);
+                 scrollController.animateTo(scrollController.position.maxScrollExtent, duration: const Duration(seconds: 1), curve: Curves.linear);
                 },
                 icon: Icon(Icons.arrow_downward_rounded,color: AppColor.whiteColor,)
             ).animate().shake();
@@ -90,7 +90,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 //*menu
                 Builder(
                   builder: (context) {
-                    MenuDashBoard(onTapCallBack: (){},title: "",imageName: "",
+                    MenuDashBoard(onTapCallBack: (){},title: "Add Transaction",imageName: "",
                     checkItemHeight: (double h){
                     height = h;
                     },

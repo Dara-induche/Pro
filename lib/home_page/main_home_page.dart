@@ -6,6 +6,7 @@ import 'package:propertymanagement/app_style/app_color.dart';
 import 'package:propertymanagement/app_style/app_dimension.dart';
 import 'package:propertymanagement/app_style/app_font.dart';
 import 'package:propertymanagement/home_page/dash_board_page/dashboard_page.dart';
+import 'package:propertymanagement/home_page/profile/profile_page.dart';
 import 'package:propertymanagement/widget/menu_drawer.dart';
 
 class MainHomePage extends StatefulWidget {
@@ -233,6 +234,9 @@ class _MainHomePageState extends State<MainHomePage> {
         ),
         body: Builder(builder: (BuildContext context){
 
+          if(widget.indexBottomNavigation==1){
+            return ProfilePage();
+          }
 
           return DashBoardPage();
         }
