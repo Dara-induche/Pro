@@ -19,15 +19,13 @@ class AppDimension{
 
 
   static double getIconDashBoardSize(BuildContext context){
-
-
     if(MediaQuery.of(context).size.width<360){
       return 38;
     }
 
     if(MediaQuery.of(context).size.width>720){
 
-      return 64;
+      return 124;
     }
 
     return 52;
@@ -41,9 +39,48 @@ class AppDimension{
 
     if(MediaQuery.of(context).size.width>720){
 
-      return 14;
+      return 20;
     }
 
     return 12;
   }
+
+
+  static double getHeightMenuDashboard(double height , BuildContext context){
+
+    if(MediaQuery.of(context).size.width>720){
+
+      return height*5;
+    }
+
+    return height*2+30;
+  }
+
+  static double getHeightButton(BuildContext context){
+    if(MediaQuery.of(context).size.width>720){
+      return 5;
+    }
+
+    return 2;
+  }
+
+  static double getSizeImageProperty(BuildContext context){
+    if(MediaQuery.of(context).size.width>720){
+
+      return 96;
+    }
+
+    return 64;
+  }
+
+  static double getSizeTextAppBar(BuildContext context){
+
+    if(MediaQuery.of(context).size.width>720){
+      return 28;
+    }
+
+    return 20;
+
+  }
+
 }

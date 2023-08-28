@@ -14,6 +14,7 @@ class DashBoardPage extends StatefulWidget {
   State<DashBoardPage> createState() => _DashBoardPageState();
 }
 
+
 class _DashBoardPageState extends State<DashBoardPage> {
 
   double height = 110;
@@ -44,6 +45,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
     }
   }
 
+  final keyRefresh = GlobalKey<RefreshIndicatorState>();
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -54,7 +57,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
           if(isShowFloatingButton){
             return IconButton(
                 onPressed: (){
-                 scrollController.animateTo(scrollController.position.maxScrollExtent, duration: Duration(seconds: 1), curve: Curves.linear);
+                 scrollController.animateTo(scrollController.position.maxScrollExtent, duration: const Duration(seconds: 1), curve: Curves.linear);
                 },
                 icon: Icon(Icons.arrow_downward_rounded,color: AppColor.whiteColor,)
             ).animate().shake();
@@ -69,6 +72,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         },),
       ),
       body: RefreshIndicator(
+        key: keyRefresh,
         onRefresh: ()async{
         },
         child: SingleChildScrollView(
@@ -82,14 +86,14 @@ class _DashBoardPageState extends State<DashBoardPage> {
                const SizedBox(height: AppDimension.appSpaceVertical*2,),
 
                //*title
-               Text("Welcome Back".tr,style: AppFont.textStyleTitle(fontWeight: FontWeight.w600,color: AppColor.greyColor),),
+               Text("Welcome Back".tr,style: AppFont.textStyleTitle(fontWeight: FontWeight.w600,color: AppColor.greyColor,fontSize: AppDimension.getSizeTextAppBar(context)),),
 
                 const SizedBox(height: AppDimension.appSpaceVertical,),
 
                 //*menu
                 Builder(
                   builder: (context) {
-                    MenuDashBoard(onTapCallBack: (){},title: "",imageName: "",
+                    MenuDashBoard(onTapCallBack: (){},title: "Add Transaction",imageName: "",
                     checkItemHeight: (double h){
                     height = h;
                     },
@@ -98,7 +102,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                    },
                  );
                     return SizedBox(
-                      height: height*2+30,
+                      height: AppDimension.getHeightMenuDashboard(height, context),
                       child: GridView(
                         physics: const NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -124,7 +128,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 const SizedBox(height: AppDimension.appSpaceVertical,),
                 
                 Container(
-                  padding: const EdgeInsets.all(AppDimension.smallPadding*2),
+                  padding:  EdgeInsets.all(AppDimension.smallPadding*AppDimension.getHeightButton(context)),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(AppDimension.defaultRadius),
                     color: AppColor.blueColor
@@ -141,7 +145,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 const SizedBox(height: AppDimension.appSpaceVertical,),
 
                 Container(
-                  padding: const EdgeInsets.all(AppDimension.smallPadding*2),
+                  padding:  EdgeInsets.all(AppDimension.smallPadding*AppDimension.getHeightButton(context)),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(AppDimension.defaultRadius),
                       color: AppColor.primaryColor
@@ -158,7 +162,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 const SizedBox(height: AppDimension.appSpaceVertical,),
 
                 Container(
-                  padding: const EdgeInsets.all(AppDimension.smallPadding*2),
+                  padding:  EdgeInsets.all(AppDimension.smallPadding*AppDimension.getHeightButton(context)),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(AppDimension.defaultRadius),
                       color: AppColor.orangeColor
@@ -175,7 +179,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 const SizedBox(height: AppDimension.appSpaceVertical*2,),
 
                 Container(
-                  padding: const EdgeInsets.all(AppDimension.smallPadding*2),
+                  padding:  EdgeInsets.all(AppDimension.smallPadding*AppDimension.getHeightButton(context)),
                   decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(AppDimension.defaultRadius),
@@ -200,7 +204,6 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     color: AppColor.whiteColor,
                     boxShadow: kElevationToShadow[2]
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: AppDimension.smallPadding),
                   child: Column(
                     children: List.generate(5, (index){
                       if(index==4){
@@ -218,7 +221,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 const SizedBox(height: AppDimension.appSpaceVertical*2,),
 
                 Container(
-                  padding: const EdgeInsets.all(AppDimension.smallPadding*2),
+                  padding:  EdgeInsets.all(AppDimension.smallPadding*AppDimension.getHeightButton(context)),
                   decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(AppDimension.defaultRadius),

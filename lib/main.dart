@@ -18,8 +18,18 @@ class MyApp extends StatelessWidget {
       title: 'Property Management',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        splashColor: AppColor.whiteColor,
+        splashColor: AppColor.primaryColor.withOpacity(0.1),
         primaryColor: AppColor.primaryColor,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(AppColor.primaryColor),
+            foregroundColor: MaterialStateProperty.all(AppColor.whiteColor),
+            shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppDimension.defaultRadius)
+            )
+            )
+          )
+        ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           elevation: AppDimension.smallPadding,
           unselectedLabelStyle: AppFont.textStyleSubTitle(
