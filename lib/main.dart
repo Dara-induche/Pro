@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Property Management',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        splashColor: AppColor.whiteColor,
+        splashColor: AppColor.primaryColor.withOpacity(0.1),
         primaryColor: AppColor.primaryColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(

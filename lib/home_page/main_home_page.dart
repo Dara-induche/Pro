@@ -5,6 +5,7 @@ import 'package:get/utils.dart';
 import 'package:propertymanagement/app_style/app_color.dart';
 import 'package:propertymanagement/app_style/app_dimension.dart';
 import 'package:propertymanagement/app_style/app_font.dart';
+import 'package:propertymanagement/home_page/add_property_page/add_property_page.dart';
 import 'package:propertymanagement/home_page/dash_board_page/dashboard_page.dart';
 import 'package:propertymanagement/home_page/profile/profile_page.dart';
 import 'package:propertymanagement/widget/menu_drawer.dart';
@@ -88,7 +89,7 @@ class _MainHomePageState extends State<MainHomePage> {
               }
               return Text(
                 title,
-                style: AppFont.textStyleHeader(color: AppColor.whiteColor,fontSize: 20),
+                style: AppFont.textStyleHeader(color: AppColor.whiteColor,fontSize: AppDimension.getSizeTextAppBar(context)),
               );
             },
           ),
@@ -236,6 +237,10 @@ class _MainHomePageState extends State<MainHomePage> {
 
           if(widget.indexBottomNavigation==1){
             return ProfilePage();
+          }
+
+          if(widget.indexBottomNavigation==0){
+            return AddPropertyPage();
           }
 
           return DashBoardPage();

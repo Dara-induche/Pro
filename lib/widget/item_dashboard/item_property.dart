@@ -38,8 +38,8 @@ class _ItemPropertyState extends State<ItemProperty> {
               borderRadius: BorderRadius.circular(8.0),
               child: Image.network(
                 "https://picsum.photos/200/300?grayscale",
-                height: 64,
-                width: 64,
+                height: AppDimension.getSizeImageProperty(context),
+                width: AppDimension.getSizeImageProperty(context),
                 fit: BoxFit.cover,
               ),
             ),
