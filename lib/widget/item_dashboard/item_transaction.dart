@@ -37,14 +37,14 @@ class _ItemTransactionState extends State<ItemTransaction> {
              child: Column(
                crossAxisAlignment: CrossAxisAlignment.start,
                children: [
-                 Text("Tenant",style: AppFont.textStyleTitle(fontSize: 16,fontWeight: FontWeight.w500),),
+                 Text("Tenant",style: AppFont.textStyleTitle(fontSize: AppDimension.getTextSizeHeaderItemNotification(context),fontWeight: FontWeight.w500),),
                  const SizedBox(height: AppDimension.appSpaceVertical/2,),
                  //
                  Row(
                    children: [
-                     Icon(FontAwesomeIcons.paperclip,color: AppColor.primaryColor,size: AppDimension.appSpaceVertical*1.5,),
+                     Icon(FontAwesomeIcons.paperclip,color: AppColor.primaryColor,size: AppDimension.getSizeIconItemTransaction(context),),
                      const SizedBox(width: AppDimension.appSpaceVertical/2,),
-                     Text("1 ${"Attachment".tr}",style: AppFont.textStyleTitle(fontSize: 12,fontWeight: FontWeight.w400),),
+                     Text("1 ${"Attachment".tr}",style: AppFont.textStyleTitle(fontSize:  AppDimension.getSizeTextSubtitleItemTransaction(context),fontWeight: FontWeight.w400),),
                    ],
                  ),
 
@@ -52,9 +52,9 @@ class _ItemTransactionState extends State<ItemTransaction> {
                  //
                  Row(
                    children: [
-                     Icon(FontAwesomeIcons.building,color: AppColor.primaryColor,size: AppDimension.appSpaceVertical*1.5,),
+                     Icon(FontAwesomeIcons.building,color: AppColor.primaryColor,size: AppDimension.getSizeIconItemTransaction(context),),
                      const SizedBox(width: AppDimension.appSpaceVertical/2,),
-                     Text("Green Lake",style: AppFont.textStyleTitle(fontSize: 12,fontWeight: FontWeight.w400),),
+                     Text("Green Lake",style: AppFont.textStyleTitle(fontSize: AppDimension.getSizeTextSubtitleItemTransaction(context),fontWeight: FontWeight.w400),),
                    ],
                  )
                ],
@@ -66,9 +66,9 @@ class _ItemTransactionState extends State<ItemTransaction> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Text("100\$",style: AppFont.textStyleTitle(fontSize: 16,fontWeight: FontWeight.w500,color: AppColor.greenColor),),
+                  Text("100\$",style: AppFont.textStyleTitle(fontSize: AppDimension.getTextSizeHeaderItemNotification(context),fontWeight: FontWeight.w500,color: AppColor.greenColor),),
                   const SizedBox(height: AppDimension.appSpaceVertical/2,),
-                  Text("12 Sep , 2023",style: AppFont.textStyleTitle(fontSize: 12,fontWeight: FontWeight.w400),),
+                  Text("12 Sep , 2023",style: AppFont.textStyleTitle(fontSize: AppDimension.getSizeTextSubtitleItemTransaction(context),fontWeight: FontWeight.w400),),
                 ],
               ),
             )

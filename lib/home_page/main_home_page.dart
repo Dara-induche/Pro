@@ -5,7 +5,9 @@ import 'package:get/utils.dart';
 import 'package:propertymanagement/app_style/app_color.dart';
 import 'package:propertymanagement/app_style/app_dimension.dart';
 import 'package:propertymanagement/app_style/app_font.dart';
+import 'package:propertymanagement/home_page/add_property_page/add_property_page.dart';
 import 'package:propertymanagement/home_page/dash_board_page/dashboard_page.dart';
+import 'package:propertymanagement/home_page/notification_page/notification_page.dart';
 import 'package:propertymanagement/home_page/profile/profile_page.dart';
 import 'package:propertymanagement/widget/menu_drawer.dart';
 
@@ -34,7 +36,7 @@ class _MainHomePageState extends State<MainHomePage> {
           backgroundColor: Theme.of(context).primaryColor,
           leading: IconButton(
             splashRadius: AppDimension.smallPadding,
-            iconSize: AppDimension.normalSizeIcon,
+            iconSize:AppDimension.getSizeIconBottomNavigation(context),
             onPressed: () {
               keyScaffold.currentState?.openDrawer();
             },
@@ -50,7 +52,7 @@ class _MainHomePageState extends State<MainHomePage> {
               icon: Badge(
                   backgroundColor: AppColor.orangeColor,
                   label: Text("9+",style:AppFont.textStyleNormal(fontWeight: FontWeight.bold,fontSize: 8,color: AppColor.whiteColor),),
-                  child: Icon(Icons.notifications_outlined,color: AppColor.whiteColor,size: AppDimension.normalSizeIcon,)
+                  child: Icon(Icons.notifications_outlined,color: AppColor.whiteColor,size: AppDimension.getSizeIconBottomNavigation(context),)
               ),
             ),
           ],
@@ -88,7 +90,7 @@ class _MainHomePageState extends State<MainHomePage> {
               }
               return Text(
                 title,
-                style: AppFont.textStyleHeader(color: AppColor.whiteColor,fontSize: 20),
+                style: AppFont.textStyleHeader(color: AppColor.whiteColor,fontSize: AppDimension.getSizeTextAppBar(context)),
               );
             },
           ),
@@ -238,14 +240,21 @@ class _MainHomePageState extends State<MainHomePage> {
             return ProfilePage();
           }
 
+          if(widget.indexBottomNavigation==3){
+            return NotificationPage();
+          }
+
+          if(widget.indexBottomNavigation==0){
+            return AddPropertyPage();
+          }
+
           return DashBoardPage();
         }
-        ,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Container(
-          width: 60,
-          height: 60,
+          width: AppDimension.getSizeIconMiddleBottomNavigation(context),
+          height: AppDimension.getSizeIconMiddleBottomNavigation(context),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: AppColor.whiteColor,
@@ -264,7 +273,7 @@ class _MainHomePageState extends State<MainHomePage> {
                   : AppColor.primaryColor.withOpacity(0.5),
               child: Icon(
                 Icons.qr_code,
-                size: 32,
+                size: AppDimension.getIconSizeFloatingButton(context),
                 color: AppColor.whiteColor,
               ),
             ),
@@ -280,22 +289,27 @@ class _MainHomePageState extends State<MainHomePage> {
             });
           },
           items:  [
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.business_outlined), label: "Property"),
-            const BottomNavigationBarItem(
-                icon: Icon(Icons.person_outline), label: "Profile"),
-            const BottomNavigationBarItem(
-                icon: Visibility(
-                    visible: false, child: Icon(Icons.person_outline)),
+             BottomNavigationBarItem(
+                icon: Icon(Icons.business_outlined,size: AppDimension.getSizeIconBottomNavigation(context)), label: "Property"),
+             BottomNavigationBarItem(
+                icon: Icon(Icons.person_outline,size: AppDimension.getSizeIconBottomNavigation(context),), label: "Profile"),
+            BottomNavigationBarItem(
+                icon: IgnorePointer(
+                  ignoring: false,
+                  child: Visibility(
+                      visible: false,
+                      child: Icon(Icons.qr_code,size: AppDimension.getSizeIconBottomNavigation(context))
+                  ),
+                ),
                 label: ""),
             BottomNavigationBarItem(
                 icon: Badge(
                     backgroundColor: AppColor.orangeColor,
                     label: Text("9+",style: AppFont.textStyleNormal(fontWeight: FontWeight.bold,fontSize: 8,color: AppColor.whiteColor),),
-                    child: const Icon(Icons.notifications)
+                    child:  Icon(Icons.notifications_outlined,size: AppDimension.getSizeIconBottomNavigation(context))
                 ),
                 label: "Notification"),
-            const BottomNavigationBarItem(icon: Icon(Icons.group), label: "Tenants")
+             BottomNavigationBarItem(icon: Icon(Icons.group_outlined,size: AppDimension.getSizeIconBottomNavigation(context)), label: "Tenants")
           ],
         ));
   }

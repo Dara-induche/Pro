@@ -36,14 +36,14 @@ class _ProfilePageState extends State<ProfilePage> {
               
               const SizedBox(height: AppDimension.appSpaceVertical,),
               //*name
-              Text("Username",style: AppFont.textStyleHeader(fontSize: 16,fontWeight: FontWeight.w500),),
+              Text("Username",style: AppFont.textStyleHeader(fontSize: AppDimension.getSizeTextInformationProfilePage(context)+2,fontWeight: FontWeight.w500),),
               //*email
-              Text("Username@gmail.com",style: AppFont.textStyleHeader(fontSize: 16,fontWeight: FontWeight.w400,color: AppColor.greyColor),),
+              Text("Username@gmail.com",style: AppFont.textStyleHeader(fontSize: AppDimension.getSizeTextInformationProfilePage(context)+2,fontWeight: FontWeight.w400,color: AppColor.greyColor),),
 
                const SizedBox(height: AppDimension.appSpaceVertical*2,),
 
               Container(
-                padding: EdgeInsets.symmetric(horizontal: AppDimension.appSpaceVertical,vertical: AppDimension.appSpaceVertical),
+                padding: const EdgeInsets.symmetric(horizontal: AppDimension.appSpaceVertical,vertical: AppDimension.appSpaceVertical),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(AppDimension.defaultRadius),
                   color: AppColor.whiteColor,
@@ -62,9 +62,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(child: Text("Phone".tr,style: AppFont.textStyleSubTitle(fontSize: 16),)),
+                          Expanded(child: Text("Phone".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),)),
 
-                          Expanded(child: Text("099842181".tr,style: AppFont.textStyleSubTitle(fontSize: 16),textAlign: TextAlign.end,)),
+                          Expanded(child: Text("099842181".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),textAlign: TextAlign.end,)),
                         ],
                       ),
                     ),
@@ -76,9 +76,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(child: Text("Occupation".tr,style: AppFont.textStyleSubTitle(fontSize: 16),)),
+                          Expanded(child: Text("Occupation".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),)),
 
-                          Expanded(child: Text("Businessman".tr,style: AppFont.textStyleSubTitle(fontSize: 16),textAlign: TextAlign.end,)),
+                          Expanded(child: Text("Businessman".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),textAlign: TextAlign.end,)),
                         ],
                       ),
                     ),
@@ -95,9 +95,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(child: Text("Designation".tr,style: AppFont.textStyleSubTitle(fontSize: 16),)),
+                          Expanded(child: Text("Designation".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),)),
 
-                          Expanded(child: Text("Land Lord".tr,style: AppFont.textStyleSubTitle(fontSize: 16),textAlign: TextAlign.end,)),
+                          Expanded(child: Text("Land Lord".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),textAlign: TextAlign.end,)),
                         ],
                       ),
                     ),
@@ -109,9 +109,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(child: Text("Institution".tr,style: AppFont.textStyleSubTitle(fontSize: 16),)),
+                          Expanded(child: Text("Institution".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),)),
 
-                          Expanded(child: Text("ABC Company".tr,style: AppFont.textStyleSubTitle(fontSize: 16),textAlign: TextAlign.end,)),
+                          Expanded(child: Text("ABC Company".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),textAlign: TextAlign.end,)),
                         ],
                       ),
                     ),
@@ -127,9 +127,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(child: Text("Passport No".tr,style: AppFont.textStyleSubTitle(fontSize: 16),)),
+                          Expanded(child: Text("Passport No".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),)),
 
-                          Expanded(child: Text("123958BC".tr,style: AppFont.textStyleSubTitle(fontSize: 16),textAlign: TextAlign.end,)),
+                          Expanded(child: Text("123958BC".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),textAlign: TextAlign.end,)),
                         ],
                       ),
                     ),
@@ -141,9 +141,9 @@ class _ProfilePageState extends State<ProfilePage> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(child: Text("Gender".tr,style: AppFont.textStyleSubTitle(fontSize: 16),)),
+                          Expanded(child: Text("Gender".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),)),
 
-                          Expanded(child: Text("Male".tr,style: AppFont.textStyleSubTitle(fontSize: 16),textAlign: TextAlign.end,)),
+                          Expanded(child: Text("Male".tr,style: AppFont.textStyleSubTitle(fontSize: AppDimension.getSizeTextInformationProfilePage(context)),textAlign: TextAlign.end,)),
                         ],
                       ),
                     ),
@@ -152,19 +152,22 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
 
+              Container(
+                padding: const EdgeInsets.symmetric(vertical: AppDimension.appSpaceVertical),
+                child: ElevatedButton(
+                    onPressed: (){
 
-             const SizedBox(height: AppDimension.appSpaceVertical,),
-
-              ElevatedButton(
-                  onPressed: (){
-
-                  },
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                  Text("Edit".tr,style: AppFont.textStyleTitle(fontSize: 18,color: AppColor.whiteColor),),
-                  ],
-              ))
+                    },
+                    child: Container(
+                      padding: const EdgeInsets.all(AppDimension.appSpaceVertical),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("Edit".tr,style: AppFont.textStyleTitle(fontSize: AppDimension.getSizeSubTextTitleAddPropertyPage(context),color: AppColor.whiteColor),),
+                        ],
+                      ),
+                    )),
+              )
             ],
           ),
         ),

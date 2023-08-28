@@ -27,7 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             Image.asset(
                 "assets/images/logo_start_app.png",
-                 height: 200,
+                 height: MediaQuery.of(context).size.width/2,
             ).animate(
               onComplete: (AnimationController controller){
                 Future.delayed(const Duration(seconds: 3),(){

@@ -38,8 +38,8 @@ class _ItemPropertyState extends State<ItemProperty> {
               borderRadius: BorderRadius.circular(8.0),
               child: Image.network(
                 "https://picsum.photos/200/300?grayscale",
-                height: 64,
-                width: 64,
+                height: AppDimension.getSizeImageItemProperty(context),
+                width: AppDimension.getSizeImageItemProperty(context),
                 fit: BoxFit.cover,
               ),
             ),
@@ -54,7 +54,7 @@ class _ItemPropertyState extends State<ItemProperty> {
                     "Test Building",
                     style: AppFont.textStyleSubTitle(
                     fontWeight: FontWeight.w600,
-                    fontSize: 14,
+                    fontSize: AppDimension.getSizeTextTitleItemProperty(context),
                     ),
                     softWrap: true,
                     maxLines: 2,
@@ -65,8 +65,8 @@ class _ItemPropertyState extends State<ItemProperty> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        width: AppDimension.appSpaceVertical,
-                        height: AppDimension.appSpaceVertical,
+                        width: AppDimension.getSizeTextSubTitleItemProperty(context),
+                        height: AppDimension.getSizeTextSubTitleItemProperty(context),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Theme.of(context).primaryColor
@@ -78,15 +78,15 @@ class _ItemPropertyState extends State<ItemProperty> {
 
                       Text("3 ${"Tenanted".tr}",style:AppFont.textStyleSubTitle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 12,
+                        fontSize: AppDimension.getSizeTextSubTitleItemProperty(context),
                         color: Theme.of(context).primaryColor
                       ),),
 
                       const SizedBox(width: 5,),
 
                       Container(
-                        width: AppDimension.appSpaceVertical,
-                        height: AppDimension.appSpaceVertical,
+                        width: AppDimension.getSizeTextSubTitleItemProperty(context),
+                        height: AppDimension.getSizeTextSubTitleItemProperty(context),
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: AppColor.orangeColor
@@ -97,7 +97,7 @@ class _ItemPropertyState extends State<ItemProperty> {
 
                       Text("9 ${"Vacant".tr}",style:AppFont.textStyleSubTitle(
                         fontWeight: FontWeight.w600,
-                        fontSize: 12,
+                        fontSize: AppDimension.getSizeTextSubTitleItemProperty(context),
                         color: AppColor.orangeColor
                       ),)
                     ],
@@ -106,7 +106,7 @@ class _ItemPropertyState extends State<ItemProperty> {
               ),
             ),
 
-            IconButton(onPressed: widget.onTapMenu, icon: Icon(Icons.more_vert_outlined,color: Theme.of(context).primaryColor,))
+            IconButton(onPressed: widget.onTapMenu, icon: Icon(Icons.more_vert_outlined,color: Theme.of(context).primaryColor,size: AppDimension.getSizeIconBottomNavigation(context),))
 
           ],
         ),

@@ -23,7 +23,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
 
   ScrollController scrollController = ScrollController();
 
-  bool isShowFloatingButton = false;
+  bool isShowFloatingButton = true;
 
   @override
   void initState() {
@@ -44,6 +44,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
       });
     }
   }
+
+  final keyRefresh = GlobalKey<RefreshIndicatorState>();
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +72,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
         },),
       ),
       body: RefreshIndicator(
+        key: keyRefresh,
         onRefresh: ()async{
         },
         child: SingleChildScrollView(
@@ -83,7 +86,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                const SizedBox(height: AppDimension.appSpaceVertical*2,),
 
                //*title
-               Text("Welcome Back".tr,style: AppFont.textStyleTitle(fontWeight: FontWeight.w600,color: AppColor.greyColor),),
+               Text("Welcome Back".tr,style: AppFont.textStyleTitle(fontWeight: FontWeight.w600,color: AppColor.greyColor,fontSize: AppDimension.getSizeTextAppBar(context)),),
 
                 const SizedBox(height: AppDimension.appSpaceVertical,),
 
@@ -99,7 +102,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                    },
                  );
                     return SizedBox(
-                      height: height*2+30,
+                      height: AppDimension.getHeightMenuDashboard(height, context),
                       child: GridView(
                         physics: const NeverScrollableScrollPhysics(),
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -125,7 +128,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 const SizedBox(height: AppDimension.appSpaceVertical,),
                 
                 Container(
-                  padding: const EdgeInsets.all(AppDimension.smallPadding*2),
+                  padding:  EdgeInsets.all(AppDimension.smallPadding*AppDimension.getHeightButton(context)),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(AppDimension.defaultRadius),
                     color: AppColor.blueColor
@@ -133,8 +136,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Total Property",style: AppFont.textStyleTitle(fontSize: 16,fontWeight: FontWeight.w600,color: AppColor.whiteColor),),
-                      Text("3",style: AppFont.textStyleTitle(fontSize: 18,fontWeight: FontWeight.bold,color: AppColor.whiteColor),)
+                      Text("Total Property",style: AppFont.textStyleTitle(fontSize: AppDimension.getSizeSubTextTitleAddPropertyPage(context),fontWeight: FontWeight.w600,color: AppColor.whiteColor),),
+                      Text("3",style: AppFont.textStyleTitle(fontSize: AppDimension.getSizeSubTextTitleAddPropertyPage(context),fontWeight: FontWeight.bold,color: AppColor.whiteColor),)
                     ],
                   ),
                 ),
@@ -142,7 +145,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 const SizedBox(height: AppDimension.appSpaceVertical,),
 
                 Container(
-                  padding: const EdgeInsets.all(AppDimension.smallPadding*2),
+                  padding:  EdgeInsets.all(AppDimension.smallPadding*AppDimension.getHeightButton(context)),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(AppDimension.defaultRadius),
                       color: AppColor.primaryColor
@@ -150,8 +153,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Occupied",style: AppFont.textStyleTitle(fontSize: 16,fontWeight: FontWeight.w600,color: AppColor.whiteColor),),
-                      Text("10",style: AppFont.textStyleTitle(fontSize: 18,fontWeight: FontWeight.bold,color: AppColor.whiteColor),)
+                      Text("Occupied",style: AppFont.textStyleTitle(fontSize: AppDimension.getSizeSubTextTitleAddPropertyPage(context),fontWeight: FontWeight.w600,color: AppColor.whiteColor),),
+                      Text("10",style: AppFont.textStyleTitle(fontSize: AppDimension.getSizeSubTextTitleAddPropertyPage(context),fontWeight: FontWeight.bold,color: AppColor.whiteColor),)
                     ],
                   ),
                 ),
@@ -159,7 +162,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 const SizedBox(height: AppDimension.appSpaceVertical,),
 
                 Container(
-                  padding: const EdgeInsets.all(AppDimension.smallPadding*2),
+                  padding:  EdgeInsets.all(AppDimension.smallPadding*AppDimension.getHeightButton(context)),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(AppDimension.defaultRadius),
                       color: AppColor.orangeColor
@@ -167,8 +170,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Vacant",style: AppFont.textStyleTitle(fontSize: 16,fontWeight: FontWeight.w600,color: AppColor.whiteColor),),
-                      Text("18+",style: AppFont.textStyleTitle(fontSize: 18,fontWeight: FontWeight.bold,color: AppColor.whiteColor),)
+                      Text("Vacant",style: AppFont.textStyleTitle(fontSize: AppDimension.getSizeSubTextTitleAddPropertyPage(context),fontWeight: FontWeight.w600,color: AppColor.whiteColor),),
+                      Text("18+",style: AppFont.textStyleTitle(fontSize: AppDimension.getSizeSubTextTitleAddPropertyPage(context),fontWeight: FontWeight.bold,color: AppColor.whiteColor),)
                     ],
                   ),
                 ),
@@ -176,7 +179,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 const SizedBox(height: AppDimension.appSpaceVertical*2,),
 
                 Container(
-                  padding: const EdgeInsets.all(AppDimension.smallPadding*2),
+                  padding:  EdgeInsets.all(AppDimension.smallPadding*AppDimension.getHeightButton(context)),
                   decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(AppDimension.defaultRadius),
@@ -188,8 +191,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Properties",style: AppFont.textStyleTitle(fontSize: 20,fontWeight: FontWeight.w600,color: AppColor.blackColor),),
-                      Text("See All".tr,style: AppFont.textStyleTitle(fontSize: 16,fontWeight: FontWeight.w500,color: AppColor.blackColor),)
+                      Text("Properties",style: AppFont.textStyleTitle(fontSize: AppDimension.getTextSizeSeeAll(context),fontWeight: FontWeight.w600,color: AppColor.blackColor),),
+                      Text("See All".tr,style: AppFont.textStyleTitle(fontSize: AppDimension.getSizeSubTextTitleAddPropertyPage(context),fontWeight: FontWeight.w500,color: AppColor.blackColor),)
                     ],
                   ),
                 ),
@@ -201,7 +204,6 @@ class _DashBoardPageState extends State<DashBoardPage> {
                     color: AppColor.whiteColor,
                     boxShadow: kElevationToShadow[2]
                   ),
-                  padding: const EdgeInsets.symmetric(horizontal: AppDimension.smallPadding),
                   child: Column(
                     children: List.generate(5, (index){
                       if(index==4){
@@ -219,7 +221,7 @@ class _DashBoardPageState extends State<DashBoardPage> {
                 const SizedBox(height: AppDimension.appSpaceVertical*2,),
 
                 Container(
-                  padding: const EdgeInsets.all(AppDimension.smallPadding*2),
+                  padding:  EdgeInsets.all(AppDimension.smallPadding*AppDimension.getHeightButton(context)),
                   decoration: BoxDecoration(
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(AppDimension.defaultRadius),
@@ -231,8 +233,8 @@ class _DashBoardPageState extends State<DashBoardPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Transaction History",style: AppFont.textStyleTitle(fontSize: 20,fontWeight: FontWeight.w600,color: AppColor.blackColor),),
-                      Text("See All".tr,style: AppFont.textStyleTitle(fontSize: 16,fontWeight: FontWeight.w500,color: AppColor.blackColor),)
+                      Text("Transaction History",style: AppFont.textStyleTitle(fontSize: AppDimension.getTextSizeSeeAll(context),fontWeight: FontWeight.w600,color: AppColor.blackColor),),
+                      Text("See All".tr,style: AppFont.textStyleTitle(fontSize: AppDimension.getSizeSubTextTitleAddPropertyPage(context),fontWeight: FontWeight.w500,color: AppColor.blackColor),)
                     ],
                   ),
                 ),
@@ -256,7 +258,10 @@ class _DashBoardPageState extends State<DashBoardPage> {
                       return ItemTransaction(onTap: (){},onTapMenu: (){},);
                     }),
                   ),
-                )
+                ),
+
+
+              const  SizedBox(height: 40,)
 
 
               ],

@@ -41,8 +41,10 @@ class _MenuDashBoardState extends State<MenuDashBoard> {
               border: Border.all(color: AppColor.greyColor.withOpacity(0.5),width: 0.8)
           ),
           child: Container(
+            alignment: Alignment.center,
             margin: EdgeInsets.symmetric(horizontal:AppDimension.appSpaceVertical),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: AppDimension.appSpaceVertical,),
 

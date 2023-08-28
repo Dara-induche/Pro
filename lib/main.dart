@@ -18,10 +18,11 @@ class MyApp extends StatelessWidget {
       title: 'Property Management',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        splashColor: AppColor.whiteColor,
+        splashColor: AppColor.primaryColor.withOpacity(0.1),
         primaryColor: AppColor.primaryColor,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
+            overlayColor: MaterialStateProperty.all(AppColor.greyColor),
             backgroundColor: MaterialStateProperty.all(AppColor.primaryColor),
             foregroundColor: MaterialStateProperty.all(AppColor.whiteColor),
             shape: MaterialStateProperty.all(RoundedRectangleBorder(
@@ -31,14 +32,14 @@ class MyApp extends StatelessWidget {
           )
         ),
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          elevation: AppDimension.smallPadding,
+          elevation: AppDimension.defaultElevation,
           unselectedLabelStyle: AppFont.textStyleSubTitle(
-            fontSize: 10,
+            fontSize: AppDimension.getTextSizeBottomNavigationUnSelected(context),
             fontWeight: FontWeight.w400
           ),
           selectedLabelStyle: AppFont.textStyleSubTitle(
-            fontSize: 12,
-            fontWeight: FontWeight.w600,
+              fontSize: AppDimension.getTextSizeBottomNavigationSelected(context),
+              fontWeight: FontWeight.w600,
             color: AppColor.primaryColor
           ),
         ),
