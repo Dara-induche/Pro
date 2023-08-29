@@ -22,6 +22,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: widget.onTap,
+
       splashColor: AppColor.orangeColor,
       leading: Icon(widget.iconsName,color: AppColor.greyColor,size: AppDimension.getSizeIconDrawer(context),),
       title: Text(
